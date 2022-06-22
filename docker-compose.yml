@@ -4,5 +4,10 @@ services:
     image: ghcr.io/lukebaal/mariadb-client
     restart: always
     command: sh -c "echo \"55 7 * * * /bin/ash /scripts/daily/backup-database.sh \" | crontab - && crond -f -L /dev/stdout"
+    environment:
+      MYSQL_CONTAINER_NAME: ${MYSQL_CONTAINER_NAME}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /path/to/host:/opt/mysql/backup
