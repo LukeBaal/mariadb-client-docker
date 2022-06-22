@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN mkdir /scripts
+RUN mkdir -p /scripts/daily
 
 COPY ./scripts/daily/* /scripts/daily
 
