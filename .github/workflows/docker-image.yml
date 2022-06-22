@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  IMAGE_NAME: marquee
+  IMAGE_NAME: mariadb-client
   IMAGE_REGISTRY: ghcr.io
   REGISTRY_USER: ${{ secrets.REGISTRY_USER }}
   REGISTRY_PASSWORD: ${{ github.token }}
