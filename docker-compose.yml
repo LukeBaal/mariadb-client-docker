@@ -1,7 +1,7 @@
 version: "3.1"
 services:
   mysql-backup:
-    image: ghcr.io/lukebaal/mariadb-client
+    image: ghcr.io/lukebaal/mariadb-client:latest
     restart: always
     command: sh -c "echo \"55 7 * * * /bin/ash /scripts/daily/backup-database.sh \" | crontab - && crond -f -L /dev/stdout"
     environment:

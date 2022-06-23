@@ -15,4 +15,4 @@ MUSER=$MYSQL_USER
 [ ! -d "$BACKUP_FOLDER" ] && mkdir --parents $BACKUP_FOLDER
 
 FILE=${BACKUP_FOLDER}/backup-${NOW}.sql.gz
-$MYSQLDUMP -h $MHOST -u $MUSER -p${MPASS} --databases $MDB | $GZIP -9 > $FILE
+$MYSQLDUMP --single-transaction -h $MHOST -u $MUSER --password="${MPASS}" --databases $MDB | $GZIP -9 > $FILE
